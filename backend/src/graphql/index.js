@@ -1,11 +1,9 @@
 const { ApolloServer,AuthenticationError, gql } = require('apollo-server-express');
-// const {GuildResolvers,GuildTypeDefs} = require('./guilds/');
-// const {ReportsTypeDefs,ReportResolvers} = require('./reports/')
-// const {MiscResolvers, MiscTypeDefs} = require('./misc/')
-const {permissionDirectiveTransformer} = require('./admin/')
+//const {permissionDirectiveTransformer} = require('./admin/')
 const { ApolloServerPluginLandingPageGraphQLPlayground } = require('apollo-server-core');
 const { makeExecutableSchema } = require('@graphql-tools/schema');
-const { DummyResolvers, DummyTypeDefs } = require('./dummy');
+const DummyResolvers = require('./resolvers')
+const {TypeDefs} = require('./typedefs');
 
 const resolvers = {
     Query: {
@@ -17,11 +15,9 @@ const resolvers = {
 }
 
 let schema = makeExecutableSchema({
-  typeDefs: [DummyTypeDefs],
+  typeDefs: [TypeDefs],
   resolvers: resolvers
 }) 
-
-schema = permissionDirectiveTransformer(schema)
 
 const corsOptions = {
   origin: [process.env.FRONTEND_URL, "http://localhost:5500/graphql"],

@@ -1,30 +1,19 @@
 const mongoose = require(`mongoose`)
 
 const UserSchema = new mongoose.Schema({
-    discordId:{
+    userId:{
         type: String,
         required:true,
         unique:true,
     },
-    discordTag:{
+    username:{
         type:String,
         required:true
     },
-    avatar:{
+    password:{
         type:String,
         required:true
     },
-    characters:{
-        // Here player characters IDs will be stored
-        type:Array,
-        default:[]
-    },
-    games:{
-        // Here player games(campaigns) will be stored.  
-        type:Array,
-        default:[]
-    }
-
 })
 
 module.exports = mongoose.model(`user`,UserSchema)

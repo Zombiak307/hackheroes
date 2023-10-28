@@ -1,5 +1,5 @@
 require('custom-env').env(process.env.NODE_ENV === 'development' ? 'development' : 'production')
-require(`./strategies/discord.js`)
+require(`./strategies/local.js`)
 
 const express = require('express')
 const app = express()
@@ -10,16 +10,8 @@ const Store = require(`connect-mongo`)(session)
 //To zapisze dane o sesji z 'session' i jak będzie reinicjalizacja strony(restart), to włączy sesje
 const cors = require(`cors`)
 const {startApolloServer} = require('./graphql/index')
-// const stats = require(`./utils/stats`)
-// const onInit = require(`./utils/onInit`)
 //Graphql itd.
 
-// Cron - ważne
-
-// if(process.env.NODE_ENV !== 'development'){
-//   stats.run()
-// } 
-// onInit.run()
 
 //Stats initialization
 const PORT = process.env.PORT || 3002
