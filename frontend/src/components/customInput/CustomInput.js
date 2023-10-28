@@ -1,5 +1,7 @@
 /* eslint-disable prettier/prettier */
+
 import { View, TextInput, StyleSheet} from 'react-native';
+
 import React from 'react';
 
 const CustomInput = ({value, setValue, placeholder, secureTextEntry}) => {
@@ -21,6 +23,7 @@ const styles = StyleSheet.create({
         width: '100%',
         paddingHorizontal: 10,
         marginVertical: 5,
+
         borderColor: '#9dbed1',
         borderWidth: 1,
         borderRadius: 5,
@@ -31,3 +34,4 @@ const styles = StyleSheet.create({
 });
 
 export default CustomInput;
+
