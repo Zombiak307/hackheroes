@@ -61,4 +61,5 @@ WAŻNE! WAŻNE!
 Graphql zainicjalizowany __dopiero__ po passport, bo inaczej to będzie unauthorized i w ogóle źle
 */
 app.use(`/api`,routes)
+app.use('/static',express.static(__dirname + '/uploads/img'))
 app.listen(PORT, () => console.log(`Express server running on port ${PORT}`))
