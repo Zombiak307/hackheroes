@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Cutive Mono.ttf",
+      "sha1": "d2b8ba6b04ee1df90a0b38eb941c76fc1742c9ef"
+    },
+    {
+      "path": "assets/fonts/Montserrat Thin.ttf",
+      "sha1": "debd10e57fb07dd24187c41679885129449c1435"
+    }
+  ]
+}
