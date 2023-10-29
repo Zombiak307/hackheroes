@@ -10,6 +10,7 @@ const Store = require(`connect-mongo`)(session)
 //To zapisze dane o sesji z 'session' i jak będzie reinicjalizacja strony(restart), to włączy sesje
 const cors = require(`cors`)
 const {startApolloServer} = require('./graphql/index')
+const upload = require('./uploads/upload')
 //Graphql itd.
 
 
@@ -50,6 +51,10 @@ app.use(passport.session())
 
 
 startApolloServer(app)
+
+app.get('/', function(req, res) {
+  res.sendFile(__dirname+`/index.html`);
+});
 
 /* 
 WAŻNE! WAŻNE!
