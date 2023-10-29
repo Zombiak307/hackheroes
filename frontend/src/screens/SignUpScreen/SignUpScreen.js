@@ -13,12 +13,10 @@ const SignUpScreen = () => {
     const navigation = useNavigation();
 
     const onRegisterPressed = () => {
-      console.warn('Register');
-      //validate
-      navigation.navigate('Home');
+      //create account
+      navigation.navigate('SignIn');
     };
     const onSignInPressed = () => {
-      console.warn('Sign in');
       navigation.navigate('SignIn');
     };
 
@@ -41,6 +39,7 @@ const SignUpScreen = () => {
 
 const styles = StyleSheet.create({
     root: {
+        flex: 1,
         alignItems: 'center',
         padding: 20,
         backgroundColor: '#c4e3f5',

@@ -14,12 +14,10 @@ const SigninScreen = () => {
     const navigation = useNavigation();
 
     const onSignInPressed = () => {
-      console.warn('Sign in');
       //validate user
-      navigation.navigate('Home');
+      navigation.navigate('TabBarScreen');
     };
     const onSignUpPressed = () => {
-      console.warn('Sign up');
       navigation.navigate('SignUp');
     };
   return (
@@ -41,6 +39,7 @@ const SigninScreen = () => {
 
 const styles = StyleSheet.create({
     root: {
+        flex:1,
         alignItems: 'center',
         padding: 50,
         backgroundColor: '#c4e3f5',
@@ -49,7 +48,7 @@ const styles = StyleSheet.create({
         width: '70%',
         maxWidth: 500,
         maxHeight: 200,
-        marginTop: 30,
+        marginTop: 80,
     },
     text: {
       fontFamily: 'Cutive Mono',

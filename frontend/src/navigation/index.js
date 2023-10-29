@@ -5,27 +5,32 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SigninScreen from '../screens/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen';
-import HomeScreen from '../screens/HomeScreen';
+import TabBarScreen from '../screens/TabBarScreen';
 
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
   return (
     <NavigationContainer>
-        <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Navigator screenOptions={{
+          headerShown: false,
+          cardStyle: {
+            flex: 1,
+          },
+        }}>
             <Stack.Screen name="SignIn" component={SigninScreen} />
             <Stack.Screen name="SignUp" component={SignUpScreen} />
-            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="TabBarScreen" component={TabBarScreen} />
         </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
-styles = StyleSheet.create({
-    root: {
-        flex: 1,
-        backgroundColor: '#c4e3f5',
-    },
+const styles = StyleSheet.create({
+  root: {
+      flex: 1,
+      backgroundColor: '#c5e3f5',
+  },
 });
 
 export default Navigation;
