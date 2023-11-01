@@ -4,6 +4,7 @@
 import React from 'react';
 import { AppRegistry } from 'react-native';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import App from './App';
 
 // Initialize Apollo Client
 const client = new ApolloClient({
@@ -11,10 +12,10 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
-const App = () => (
+const App1 = () => (
   <ApolloProvider client={client}>
-    <MyRootComponent />
+    <App />
   </ApolloProvider>
 );
 
-AppRegistry.registerComponent('MyApplication', () => App);
+AppRegistry.registerComponent('Application', () => App1);
