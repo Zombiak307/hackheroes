@@ -5,6 +5,7 @@ import CustomInput from '../../components/customInput/CustomInput';
 import taskstab from '../../../assets/data/taskstab';
 import ShowTask from '../../components/ShowTask';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+console.log(taskstab);
 
 const FriendsScreen = () => {
   const [search, setSearch] = useState('');
@@ -38,12 +39,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   pic: {
-  //   width: 80,
-  //   height: 80,
-  //   resizeMode: 'contain',
-  //   borderWidth: 2,
-  //   borderColor: '#4d5d94',
-  //   borderRadius: 50,
     position: 'absolute',
     right: 20,
     marginTop: 20,
