@@ -5,6 +5,8 @@
  * @format
  */
 import React from 'react';
+import {AppRegistry} from 'react-native';
+import {name as appName} from './app.json';
 import {StyleSheet, Text, SafeAreaView} from 'react-native';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import Navigation from './src/navigation';
@@ -36,4 +38,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+AppRegistry.registerComponent(appName, () => App);
