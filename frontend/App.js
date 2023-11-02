@@ -6,19 +6,24 @@
  */
 import React from 'react';
 import {StyleSheet, Text, SafeAreaView} from 'react-native';
-
-import SigninScreen from './src/screens/SignInScreen';
-import SignUpScreen from './src/screens/SignUpScreen';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import Navigation from './src/navigation';
 
+// Initialize Apollo Client
+const client = new ApolloClient({
+  uri: 'localhost:3000/graphql',
+  cache: new InMemoryCache()
+});
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.root}>
+    <ApolloProvider client={client}>
+      <SafeAreaView style={styles.root}>
 
-      <Navigation style={styles.root}/>
+        <Navigation style={styles.root} />
 
-    </SafeAreaView>
+      </SafeAreaView>
+    </ApolloProvider>
   );
 };
 

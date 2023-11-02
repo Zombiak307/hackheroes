@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import CustomInput from '../../components/customInput/CustomInput';
 import taskstab from '../../../assets/data/taskstab';
 import ShowTask from '../../components/ShowTask';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const FriendsScreen = () => {
   const [search, setSearch] = useState('');
@@ -13,9 +14,7 @@ const FriendsScreen = () => {
         <View style={styles.container}>
           <CustomInput value={search} setValue={setSearch} placeholder="Search" />
         </View>
-        <Image
-          source={{uri: 'https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvZnJob3JzZV9nYWxsb3BfY2FudGVyX21hcmUtaW1hZ2Utcm01MDNfMS1sMDd0dW5iZy5qcGc.jpg'}}
-          style={styles.pic}/>
+        <MaterialCommunityIcons name='human-greeting-variant' size={60} color={'#395f75'} style={styles.pic} />
       </View>
       <View style={{marginBottom: 100}}>
         <FlatList
@@ -34,21 +33,20 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   container: {
-    width: '75%',
+    width: '80%',
     paddingLeft: 20,
     paddingTop: 20,
-    paddingBottom: 30,
   },
   pic: {
-    width: 80,
-    height: 80,
-    resizeMode: 'contain',
-    borderWidth: 2,
-    borderColor: '#4d5d94',
-    borderRadius: 50,
+  //   width: 80,
+  //   height: 80,
+  //   resizeMode: 'contain',
+  //   borderWidth: 2,
+  //   borderColor: '#4d5d94',
+  //   borderRadius: 50,
     position: 'absolute',
-    right: 10,
-    marginTop: 12,
+    right: 20,
+    marginTop: 20,
   },
 });
 
