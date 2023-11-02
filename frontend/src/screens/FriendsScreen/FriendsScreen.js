@@ -4,18 +4,20 @@ import React, {useState} from 'react';
 import CustomInput from '../../components/customInput/CustomInput';
 import taskstab from '../../../assets/data/taskstab';
 import ShowTask from '../../components/ShowTask';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-console.log(taskstab);
+import { profiles } from '../../components/profiles';
 
 const FriendsScreen = () => {
+
+  const user = profiles[1];
+  const { username, profilePic, myFriends } = user;
   const [search, setSearch] = useState('');
   return (
-    <View style={styles.root}>
+    <SafeAreaView style={styles.root}>
       <View>
-        <View style={styles.container}>
+      <View style={styles.container}>
           <CustomInput value={search} setValue={setSearch} placeholder="Search" />
         </View>
-        <MaterialCommunityIcons name='human-greeting-variant' size={60} color={'#395f75'} style={styles.pic} />
+        <Image source={{ uri: profilePic }} style={styles.pic}/>
       </View>
       <View style={{marginBottom: 100}}>
         <FlatList
@@ -23,7 +25,7 @@ const FriendsScreen = () => {
         renderItem={({item}) => <ShowTask props={item} />}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -39,6 +41,10 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   pic: {
+    width: 80,
+    height: 80,
+    resizeMode: 'contain',
+    borderRadius: 100,
     position: 'absolute',
     right: 20,
     marginTop: 20,
