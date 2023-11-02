@@ -13,7 +13,7 @@ import Navigation from './src/navigation';
 
 // Initialize Apollo Client
 const client = new ApolloClient({
-  uri: 'localhost:3000/graphql',
+  uri: `${process.env.NODE_ENV === 'development' ? process.env.REACT_APP_BACKEND_LINK_DEV : process.env.REACT_APP_BACKEND_LINK_PROD}/graphql`,
   cache: new InMemoryCache()
 });
 

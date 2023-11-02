@@ -1,5 +1,5 @@
 require('custom-env').env(process.env.NODE_ENV === 'development' ? 'development' : 'production')
-require(`./strategies/local.js`)
+require(`./strategies/google.js`)
 
 const express = require('express')
 const app = express()
