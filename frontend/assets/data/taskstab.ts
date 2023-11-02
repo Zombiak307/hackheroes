@@ -8,6 +8,12 @@ export default [
   },
   {
     user: 'mariadyli',
+    name: 'laugh at kasias awesome jokes',
+    status: 'todo',
+    image: null,
+  },
+  {
+    user: 'mariadyli',
     name: 'horseride',
     status: 'todo',
     image: null,
