@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SigninScreen from '../screens/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import TabBarScreen from '../screens/TabBarScreen';
+import AddTaskScreen from '../screens/AddTaskScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,9 +19,14 @@ const Navigation = () => {
             flex: 1,
           },
         }}>
+          <Stack.Group>
             <Stack.Screen name="SignIn" component={SigninScreen} />
             <Stack.Screen name="SignUp" component={SignUpScreen} />
+          </Stack.Group>
+          <Stack.Group>
             <Stack.Screen name="TabBarScreen" component={TabBarScreen} />
+            <Stack.Screen name="AddTaskScreen" component={AddTaskScreen} />
+          </Stack.Group>
         </Stack.Navigator>
     </NavigationContainer>
   );

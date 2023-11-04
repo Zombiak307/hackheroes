@@ -5,7 +5,6 @@ import CustomInput from '../../components/customInput/CustomInput';
 import taskstab from '../../../assets/data/taskstab';
 import ShowTask from '../../components/ShowTask';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-console.log(taskstab);
 
 const FriendsScreen = () => {
   const [search, setSearch] = useState('');
