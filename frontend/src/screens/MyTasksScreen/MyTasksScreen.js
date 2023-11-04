@@ -2,11 +2,16 @@ import { ScrollView, useWindowDimensions, View, Text, StyleSheet, FlatList, Pres
 import React, {useState} from 'react';
 import taskstab from '../../../assets/data/taskstab';
 import ShowMyTask from '../../components/showMyTask/ShowMyTask';
+import { profiles } from '../../components/profiles';
+
+//const username = 'mariadyli';
+const user = profiles[1];
+const { username, profilePic, myFriends } = user;
+
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { useNavigation } from '@react-navigation/native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-const username = 'mariadyli';
+
 let taskCount = 0;
 let doneCount = 0;
 taskstab.forEach((element) => {
@@ -83,6 +88,7 @@ const AddTaskScreen = ({modal, setModal}) => {
     </View>
   );
 };
+
 
 const MyTasksScreen = () => {
   const navigation = useNavigation();
