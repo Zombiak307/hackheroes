@@ -1,7 +1,10 @@
-import { ScrollView, View, Text, StyleSheet, FlatList } from 'react-native';
-import React from 'react';
+import { ScrollView, useWindowDimensions, View, Text, StyleSheet, FlatList, Pressable, Modal, TextInput } from 'react-native';
+import React, {useState} from 'react';
 import taskstab from '../../../assets/data/taskstab';
 import ShowMyTask from '../../components/showMyTask/ShowMyTask';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useNavigation } from '@react-navigation/native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const username = 'mariadyli';
 let taskCount = 0;
@@ -31,10 +34,62 @@ taskstab.forEach((element) => {
     tasks.push(memo);
   };
 });
-console.log(tasks);
+
+const AddTaskScreen = ({modal, setModal}) => {
+  const [date, setDate] = useState(new Date());
+  const [show, setShow] = useState(false);
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setDate(currentDate);
+    setShow(false);
+    console.log(currentDate);
+  };
+
+  const onPressed = () => {
+    setShow(true);
+  };
+
+  const createTask = () => {
+    // mutation
+    setModal(!modal);
+  };
+
+  return (
+    <View>
+      <View>
+        <Text style={styles.header} >AddTaskScreen</Text>
+        <Pressable onPress={()=> setModal(!modal)}style={styles.exit}>
+          <MaterialCommunityIcons name="close" size={20} color={'black'}/>
+        </Pressable>
+        <TextInput placeholder='Task name' style={styles.input}/>
+        <Pressable onPress={onPressed} style={styles.choose}>
+          <Text>Choose deadline</Text>
+        </Pressable>
+        {show && (
+          <DateTimePicker
+          testID='dateTimePicker'
+          value={date}
+          is24Hour={true}
+          display='default'
+          onChange={onChange}/>
+        )}
+      </View>
+      <View>
+        <Pressable onPress={createTask} style={styles.add}>
+          <Text>Add</Text>
+        </Pressable>
+      </View>
+    </View>
+  );
+};
 
 const MyTasksScreen = () => {
-  
+  const navigation = useNavigation();
+  const [show, setShow] = useState(false);
+  const addTask = () => {
+    setShow(true);
+  };
   return (
     <View style={styles.root}>
       <Text style={styles.title} > ~ My Tasks</Text>
@@ -48,6 +103,23 @@ const MyTasksScreen = () => {
         renderItem={({item}) => <ShowMyTask props={item} />}
         />
       </View>
+      <Pressable onPress={addTask} style={styles.pic}>
+        <MaterialCommunityIcons name="plus-box-outline" size={50} color={'#395f75'} />
+      </Pressable>
+      {show && (
+        <Modal
+        animationType="slide"
+        transparent={true}
+        visible={show}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          setShow(!show);
+        }}>
+          <View style={{backgroundColor: 'white', flex: 1}}>
+            <AddTaskScreen modal={show} setModal={setShow}/>
+          </View>
+        </Modal>
+      )}
     </View>
   );
 };
@@ -82,7 +154,46 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: 'center',
     backgroundColor: '#f08bb5',
-  }
+  },
+  pic: {
+    position: 'absolute',
+    bottom: 10,
+    right: 20,
+    marginBottom: 20,
+    backgroundColor: '#f7f8fa',
+    borderRadius: 10,
+  },
+  header: {
+    fontSize: 20,
+    backgroundColor: '#f7f8fa',
+    padding: 10,
+    fontStyle: 'italic',
+    color: 'black',
+    marginBottom: 40,
+  },
+  input:{
+    margin: 10,
+    borderBottomWidth: 3,
+    marginHorizontal: 20,
+  },
+  choose: {
+    margin: 10,
+    backgroundColor: '#f7f8fa',
+    fontSize: 10,
+    padding: 10,
+    marginHorizontal: 15,
+    borderRadius: 20,
+    marginBottom: 80,
+  },
+  exit:{
+    position: 'absolute',
+    right: 20,
+    top: 10,
+  },
+  add:{
+    position: 'absolute',
+    right: 50,
+  },
 });
 
 export default MyTasksScreen;

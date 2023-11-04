@@ -18,9 +18,9 @@ const Navigation = () => {
             flex: 1,
           },
         }}>
-            <Stack.Screen name="SignIn" component={SigninScreen} />
-            <Stack.Screen name="SignUp" component={SignUpScreen} />
-            <Stack.Screen name="TabBarScreen" component={TabBarScreen} />
+          <Stack.Screen name="SignIn" component={SigninScreen} />
+          <Stack.Screen name="SignUp" component={SignUpScreen} />
+          <Stack.Screen name="TabBarScreen" component={TabBarScreen} />
         </Stack.Navigator>
     </NavigationContainer>
   );
