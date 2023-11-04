@@ -10,7 +10,6 @@ import {name as appName} from './app.json';
 import {StyleSheet, Text, SafeAreaView} from 'react-native';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import Navigation from './src/navigation';
-import AddTaskScreen from './src/screens/AddTaskScreen';
 
 // Initialize Apollo Client
 const client = new ApolloClient({
