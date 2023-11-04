@@ -91,7 +91,6 @@ const AddTaskScreen = ({modal, setModal}) => {
 
 
 const MyTasksScreen = () => {
-  const navigation = useNavigation();
   const [show, setShow] = useState(false);
   const addTask = () => {
     setShow(true);
