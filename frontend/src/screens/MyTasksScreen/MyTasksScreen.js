@@ -2,8 +2,12 @@ import { ScrollView, View, Text, StyleSheet, FlatList } from 'react-native';
 import React from 'react';
 import taskstab from '../../../assets/data/taskstab';
 import ShowMyTask from '../../components/showMyTask/ShowMyTask';
+import { profiles } from '../../components/profiles';
 
-const username = 'mariadyli';
+//const username = 'mariadyli';
+const user = profiles[1];
+const { username, profilePic, myFriends } = user;
+
 let taskCount = 0;
 let doneCount = 0;
 taskstab.forEach((element) => {
