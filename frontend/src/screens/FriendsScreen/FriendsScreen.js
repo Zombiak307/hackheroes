@@ -6,10 +6,29 @@ import taskstab from '../../../assets/data/taskstab';
 import ShowTask from '../../components/ShowTask';
 import { profiles } from '../../components/profiles';
 
+const user = profiles[1];
+const { username, profilePic, myFriends } = user;
+let friends = [];
+myFriends.forEach((el)=> {
+  friends.push(el.friend);
+})
+
+let tasks = [];
+taskstab.forEach((element) => {
+  friends.forEach((el) => {
+    if (element.user === el){
+      let memo ={};
+      memo["user"] = element.user;
+      memo["name"] = element.name;
+      memo["status"] = element.status;
+      memo['image'] = element.image;
+      tasks.push(memo);
+    };
+  })
+});
+
 const FriendsScreen = () => {
 
-  const user = profiles[1];
-  const { username, profilePic, myFriends } = user;
   const [search, setSearch] = useState('');
   return (
     <SafeAreaView style={styles.root}>
@@ -21,7 +40,7 @@ const FriendsScreen = () => {
       </View>
       <View style={{marginBottom: 100}}>
         <FlatList
-        data={taskstab}
+        data={tasks}
         renderItem={({item}) => <ShowTask props={item} />}
         />
       </View>
