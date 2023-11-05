@@ -34,6 +34,7 @@ taskstab.forEach((element) => {
   if (element.user === username){
     let memo ={};
     memo["name"] = element.name;
+    memo["deadline"] = element.deadline;
     memo["status"] = element.status;
     memo['image'] = element.image;
     tasks.push(memo);
@@ -74,6 +75,7 @@ const AddTaskScreen = ({modal, setModal}) => {
         {show && (
           <DateTimePicker
           testID='dateTimePicker'
+          mode='date'
           value={date}
           is24Hour={true}
           display='default'
