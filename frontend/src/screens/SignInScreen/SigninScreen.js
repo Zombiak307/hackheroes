@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import {View, Text, Image, StyleSheet, useWindowDimensions, ScrollView,Linking,SafeAreaView } from 'react-native';
+import {View, Text, Image, StyleSheet, useWindowDimensions, ScrollView,Linking,SafeAreaView, Dimensions} from 'react-native';
 import React, {useState,useEffect} from 'react';
 import Logo from '../../../assets/images/star.png';
 import CustomInput from '../../components/customInput/CustomInput';
@@ -7,8 +7,11 @@ import CustomButton from '../../components/customButton/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 import { WebView } from "react-native-webview";
 import SafariView from "react-native-safari-view";
+import { initialWindowSafeAreaInsets } from 'react-native-safe-area-context';
 
 const SigninScreen = () => {
+    const windowWidth = Dimensions.get('window').width;
+    const windowHeight = Dimensions.get('window').height;
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -80,7 +83,11 @@ const SigninScreen = () => {
   return (
     <ScrollView>
       {uri !== "" ? (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{ 
+          flex: 1,
+          width:windowWidth,
+          height:windowHeight
+        }}>
           <WebView
             userAgent={
               Platform.OS === "android"
@@ -97,9 +104,13 @@ const SigninScreen = () => {
             text="Google"
             type="google"
             icon="plus"
-            onPress={() => openUrl(`http://localhost:5500/api/auth/google/login`)}
+            onPress={() => openUrl(`http://192.168.0.15:5500/api/auth/google/login`)}
           />
-      {/* <Image
+    </View>)}
+    </ScrollView>
+  );
+};
+{/* <Image
       source={Logo}
       style = {[styles.logo, {height: height * 0.3}]}
       resizeMode="contain" />
@@ -108,11 +119,6 @@ const SigninScreen = () => {
       <CustomInput placeholder="PASSWORD" value={password} setValue={setPassword} secureTextEntry={true}/>
       <CustomButton text="Sign in" onPress={onSignInPressed}/>
       <CustomButton text="Don't have an account? Create one" onPress={onSignUpPressed} type="tertiary" /> */}
-    </View>)}
-    </ScrollView>
-  );
-};
-
 const styles = StyleSheet.create({
     root: {
         flex:1,
