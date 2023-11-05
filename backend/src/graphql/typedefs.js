@@ -20,6 +20,7 @@ const TypeDefs = gql`
         type Query{
            getTasks(userId:String):[Task],
            getTask(taskId:String!):Task, 
+           getUser:User,
         }
         type Mutation{
             createTask(taskName:String!,score:Int!,deadline:Date!):Task
