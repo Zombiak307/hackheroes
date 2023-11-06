@@ -20,7 +20,7 @@ module.exports = {
     Mutation: {
         async createTask(_,args,req){
             const newTask = await Tasks.create({
-                userId:req.user.userId,
+                userId: "1699260286367",
                 taskId:Date.now(),
                 deadline: args.deadline,
                 taskName:args.taskName,
