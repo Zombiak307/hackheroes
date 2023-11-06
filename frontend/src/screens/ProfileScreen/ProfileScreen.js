@@ -28,7 +28,7 @@ const windowWidth = Dimensions.get('window').width -30;
 
 const ProfileScreen = () => {
 
-  const user = profiles[1];
+  const user = profiles[0];
   const { username, profilePic, myFriends } = user;
   
   return (
