@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SigninScreen from '../screens/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import TabBarScreen from '../screens/TabBarScreen';
+import { ApolloProvider } from '@apollo/client';
 
 const Stack = createNativeStackNavigator();
 

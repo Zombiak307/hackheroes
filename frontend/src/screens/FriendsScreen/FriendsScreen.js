@@ -6,7 +6,7 @@ import taskstab from '../../../assets/data/taskstab';
 import ShowTask from '../../components/ShowTask';
 import { profiles } from '../../components/profiles';
 
-const user = profiles[1];
+const user = profiles[2];
 const { username, profilePic, myFriends } = user;
 let friends = [];
 myFriends.forEach((el)=> {
@@ -33,7 +33,7 @@ const FriendsScreen = () => {
   return (
     <SafeAreaView style={styles.root}>
       <View>
-      <View style={styles.container}>
+        <View style={styles.container}>
           <CustomInput value={search} setValue={setSearch} placeholder="Search" />
         </View>
         <Image source={{ uri: profilePic }} style={styles.pic}/>
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     width: '80%',
     paddingLeft: 20,
     paddingTop: 20,
+    marginBottom: 20,
   },
   pic: {
     width: 80,

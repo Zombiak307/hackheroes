@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { View, Text, Image, StyleSheet, useWindowDimensions, Pressable, Modal, TextInput} from 'react-native';
 import React, {useState} from 'react';
-import { InMemoryCache, ApolloClient, ApolloProvider } from '@apollo/client';
+import { InMemoryCache, ApolloClient, ApolloProvider, gql } from '@apollo/client';
 import {createuploadlink} from 'apollo-upload-client';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -64,16 +64,18 @@ const ShowMyTask = (props) => {
     const editTask = () => {
         setModal(true);
     };
-    let {name, deadline, status, image} = props.props;
+    let {name, deadline, score,  image } = props.props;
+    // let status;
     // const [taskDeadline, setTaskDeadline] = useState(deadline);
     // const [taskName, setTaskName] = useState(name);
     const {height} = useWindowDimensions();
     let textColour;
-    if (status === 'todo'){
+    if (score < 5){
         status = 'still to do';
         textColour = '#f08bb5';
     } else {
-        textColour = '#6eb591';
+      status = 'done';
+      textColour = '#6eb591';
     };
     const textDeadline = deadline.slice(0, 10);
 

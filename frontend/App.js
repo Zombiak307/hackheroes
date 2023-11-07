@@ -5,15 +5,15 @@
  * @format
  */
 import React from 'react';
-import {AppRegistry} from 'react-native';
-import {name as appName} from './app.json';
+// import {AppRegistry} from 'react-native';
+// import {name as appName} from './app.json';
 import {StyleSheet, Text, SafeAreaView} from 'react-native';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
 import Navigation from './src/navigation';
 
 // Initialize Apollo Client
 const client = new ApolloClient({
-  uri: 'localhost:5500/graphql',
+  uri: 'http://localhost:5500/graphql',
   cache: new InMemoryCache()
 });
 
@@ -21,9 +21,7 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <SafeAreaView style={styles.root}>
-
         <Navigation />
-
       </SafeAreaView>
     </ApolloProvider>
   );
@@ -38,4 +36,5 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent(appName, () => App);
+// AppRegistry.registerComponent(appName, () => App);
+export default App;
