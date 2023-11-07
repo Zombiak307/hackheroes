@@ -1,12 +1,13 @@
 /* eslint-disable prettier/prettier */
-import { SafeAreaView, StyleSheet, View, Image, FlatList, ScrollView} from 'react-native';
+import { SafeAreaView, StyleSheet, View, Image, FlatList, ScrollView, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import CustomInput from '../../components/customInput/CustomInput';
 import taskstab from '../../../assets/data/taskstab';
 import ShowTask from '../../components/ShowTask';
 import { profiles } from '../../components/profiles';
 
-const user = profiles[0];
+
+const user = profiles[1];
 const { username, profilePic, myFriends } = user;
 let friends = [];
 myFriends.forEach((el)=> {
@@ -40,9 +41,9 @@ const FriendsScreen = () => {
       </View>
       <View style={{marginBottom: 100}}>
         <FlatList
-        data={tasks}
-        renderItem={({item}) => <ShowTask props={item} />}
-        />
+          data={tasks}
+          renderItem={({item}) => <ShowTask props={item} />}>
+        </FlatList>
       </View>
     </SafeAreaView>
   );

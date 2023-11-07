@@ -5,7 +5,7 @@ import { profiles } from '../../components/profiles';import Icon from 'react-nat
 
 const EditProfileScreen =  () => {
 
-    const user = profiles[0];
+    const user = profiles[1];
     const { username, profilePic, myFriends } = user;
 
 
