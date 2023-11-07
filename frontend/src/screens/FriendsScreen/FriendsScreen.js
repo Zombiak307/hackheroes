@@ -6,7 +6,7 @@ import taskstab from '../../../assets/data/taskstab';
 import ShowTask from '../../components/ShowTask';
 import { profiles } from '../../components/profiles';
 
-const user = profiles[2];
+const user = profiles[0];
 const { username, profilePic, myFriends } = user;
 let friends = [];
 myFriends.forEach((el)=> {
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   container: {
-    width: '80%',
+    width: '70%',
     paddingLeft: 20,
     paddingTop: 20,
     marginBottom: 20,

@@ -5,11 +5,15 @@ import React from 'react';
 import FriendsScreen from '../FriendsScreen';
 import MyTasksScreen from '../MyTasksScreen';
 import ProfileScreen from '../ProfileScreen';
+import EditProfileScreen from '../EditProfileScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 
 const Tab = createBottomTabNavigator();
+
 
 export default function TabBarScreen() {
   return (
@@ -47,7 +51,7 @@ export default function TabBarScreen() {
           />
           <Tab.Screen
             name="Profile"
-            component={ProfileScreen}
+            component={ProfileStackScreen}
             options={{
               tabBarLabel: 'Profile',
               tabBarIcon: ({ color, size }) => (
@@ -59,3 +63,42 @@ export default function TabBarScreen() {
     </NavigationContainer>
   );
 };
+
+const ProfileStack = createNativeStackNavigator();
+
+const ProfileStackScreen = ({navigation}) => (
+  <ProfileStack.Navigator screenOptions={{
+    headerStyle: {
+      backgroundColor: '#f0f0f0',
+    },
+    headerTintColor: "#000",
+    headerTitleStyle: {
+      fontFamily: 'Cutive Mono',
+      fontSize: 27,
+    }
+  }}>
+    <ProfileStack.Screen
+      name = 'Profile'
+      component = {ProfileScreen} 
+      options = {{
+        title: 'Profile',
+        headerRight: () => (
+          <MaterialCommunityIcons.Button
+            name = 'account-edit'
+            size = {27}
+            backgroundColor = '#f0f0f0'
+            color = "#000"
+            onPress = {() => navigation.navigate('EditProfile')}
+          />
+        ),
+      }}
+    />
+    <ProfileStack.Screen
+      name = 'EditProfile'
+      options = {{
+        title: 'Edit profile'
+      }}
+      component = {EditProfileScreen}
+    />
+  </ProfileStack.Navigator>
+);
