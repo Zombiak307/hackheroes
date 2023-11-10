@@ -22,7 +22,7 @@ const App = () => {
     <ApolloProvider client={client}>
       <SafeAreaView style={styles.root}>
 
-        <Navigation style={styles.root} />
+        <Navigation />
 
       </SafeAreaView>
     </ApolloProvider>

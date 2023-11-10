@@ -12,6 +12,9 @@ module.exports = {
             if(args.userId) tasks = await Tasks.find({userId:args.userId}).catch(err => {console.error(err);throw new ApolloError('Database error')})
             else tasks = await Tasks.find().catch(err => {console.error(err);throw new ApolloError('Database error')})
             return tasks;
+        },
+        getUser(_,args,req){
+            return req.user ? req.user : null
         }
     },
     Mutation: {

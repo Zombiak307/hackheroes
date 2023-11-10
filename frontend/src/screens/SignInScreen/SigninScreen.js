@@ -128,6 +128,11 @@ const styles = StyleSheet.create({
         padding: 50,
         backgroundColor: '#c4e3f5',
     },
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      width: '100%'
+    },
     logo: {
         width: '70%',
         maxWidth: 500,

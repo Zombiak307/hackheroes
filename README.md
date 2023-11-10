@@ -6,4 +6,4 @@ How to fix:
 2. Wait for everything to boot up
 3. When emulator is working and you can see the app open command prompt
 4. Type this command into the cmd: "adb reverse tcp:5500 tcp:5500"
-5. It should work now. At leat for me it works
+5. It should work now. At least for me it works
