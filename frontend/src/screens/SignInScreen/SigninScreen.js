@@ -49,20 +49,21 @@ const SigninScreen = () => {
       /firstName=([^#]+)\/lastName=([^#]+)\/email=([^#]+)/
     );
     // 2 - store data in Redux
-    const userData = {
-      isAuthenticated: true,
-      firstName: user[1],
-      lastName: user[2],
-      //some users on fb may not registered with email but rather with phone
-      email: user && user[3] ? user[3] : "NA",
-    };
-    //redux function
-    login(userData);
+    // const userData = {
+    //   isAuthenticated: true,
+    //   firstName: user[1],
+    //   lastName: user[2],
+    //   //some users on fb may not registered with email but rather with phone
+    //   email: user && user[3] ? user[3] : "NA",
+    // };
+    // //redux function
+    // login(userData);
     if (Platform.OS === "ios") {
       SafariView.dismiss();
     } else {
       setURL("");
     }
+    onSignInPressed()
   };
 
   //method that opens a given url
@@ -104,7 +105,8 @@ const SigninScreen = () => {
             text="Google"
             type="google"
             icon="plus"
-            onPress={() => openUrl(`http://192.168.0.15:5500/api/auth/google/login`)}
+            //onPress={() => openUrl(`http://192.168.0.15:5500/api/auth/google/login`)}
+            onPress={() => openUrl(`http://localhost:5500/api/auth/google/login`)}
           />
     </View>)}
     </ScrollView>
